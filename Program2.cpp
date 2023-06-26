@@ -43,7 +43,11 @@ void Student::pack()
     strcat(buffer, sem);
     strcat(buffer, "|");
     strcat(buffer, marks);
-    strcat(buffer, "\n");
+    while (strlen(buffer) < SIZE - 1)
+    {
+        strcat(buffer, "#");
+    }                     // here len of buffer is SIZE - 1
+    strcat(buffer, "\n"); // now len of buffer becomes = SIZE
 }
 
 void Student::unpack()
@@ -55,7 +59,7 @@ void Student::unpack()
     strcpy(name, p);
     p = strtok(NULL, "|");
     strcpy(sem, p);
-    p = strtok(NULL, "\n");
+    p = strtok(NULL, "#");
     strcpy(marks, p);
 }
 
@@ -63,14 +67,14 @@ void Student::insert()
 {
     getData();
     pack(); // packs the data into buffer
-    ofstream fout("record3.txt", ios::app);
+    ofstream fout("record2.txt", ios::app);
     fout << buffer;
     fout.close();
 }
 
 void Student::display()
 {
-    ifstream fin("record3.txt");
+    ifstream fin("record2.txt");
     while (!fin.eof())
     {
         fin.getline(buffer, SIZE + 1, '\n');
@@ -84,7 +88,7 @@ void Student::display()
 
 void Student::search(char *key)
 {
-    ifstream fin("record3.txt");
+    ifstream fin("record2.txt");
     int count = 0;
     while (!fin.eof())
     {
@@ -98,13 +102,13 @@ void Student::search(char *key)
             count++;
         }
     }
-    cout << "Total record3s found: " << count << endl;
+    cout << "Total record2s found: " << count << endl;
     fin.close();
 }
 
 void Student::modify(char *key)
 {
-    ifstream fin("record3.txt");
+    ifstream fin("record2.txt");
     ofstream fout("temp.txt");
     int count = 0;
     while (!fin.eof())
@@ -128,14 +132,17 @@ void Student::modify(char *key)
 
     fin.close();
     fout.close();
-    remove("record3.txt");
-    rename("temp.txt", "record3.txt");
+    remove("record2.txt");
+    rename("temp.txt", "record2.txt");
 }
+
 int main()
 {
     int choice;
     Student s;
     char key[15];
+    // clrscr();
+
     while (1)
     {
         cout << "1.Insert\n"
