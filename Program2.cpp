@@ -144,11 +144,13 @@ int main()
 
     while (1)
     {
+        cout <<"Main Menu\n"
         cout << "1.Insert\n"
              << "2.Display\n"
              << "3.Search\n"
              << "4.Modify\n"
              << "5.Exit\n"
+             <<"Enter your choice : "
              << endl;
         cin >> choice;
         switch (choice)
