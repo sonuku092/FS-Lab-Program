@@ -141,7 +141,6 @@ int main()
     int choice;
     Student s;
     char key[15];
-    // clrscr();
 
     while (1)
     {

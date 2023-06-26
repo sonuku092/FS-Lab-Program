@@ -45,7 +45,7 @@ int main()
         case 1:
         {
             int m;
-            cout << "enter no. of names\n";
+            cout << "Enter no. of names\n";
             cin >> m;
             for (int i = 0; i < m; i++)
             {
