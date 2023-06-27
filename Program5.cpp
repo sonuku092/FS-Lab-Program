@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 using namespace std;
+
 class primary_index
 {
 public:
@@ -17,6 +18,7 @@ public:
     string extract_usn(string);
     void sort_primary_index();
 };
+
 void primary_index::create_primary_index()
 {
     fstream file;
@@ -38,6 +40,7 @@ void primary_index::create_primary_index()
     file.close();
     sort_primary_index();
 }
+
 string primary_index::extract_usn(string buffer)
 {
     string usn;
@@ -52,6 +55,7 @@ string primary_index::extract_usn(string buffer)
     string extract_usn(string);
     void sort_primary_index();
 };
+
 void primary_index::create_primary_index()
 {
     fstream file;
@@ -73,6 +77,7 @@ void primary_index::create_primary_index()
     file.close();
     sort_primary_index();
 }
+
 string primary_index::extract_usn(string buffer)
 {
     string usn;
@@ -94,6 +99,7 @@ string primary_index::extract_usn(string buffer)
     address_list[count] = pos;
     sort_primary_index();
 }
+
 int primary_index::search_primary_index(string key)
 {
     int low = 0, high = count, mid = 0, flag = 0, pos;
@@ -115,6 +121,7 @@ int primary_index::search_primary_index(string key)
     else
         return -1;
 }
+
 void primary_index::search(string key)
 {
     int pos = 0, address;
@@ -134,6 +141,7 @@ void primary_index::search(string key)
     else
         cout << "\nNot found.";
 }
+
 void primary_index::remove(string key)
 {
     int pos = 0;

@@ -22,6 +22,7 @@ public:
     void create_rrn();
     void search_by_rrn(int);
 };
+
 void student::read_data()
 {
     cout << "\nUsn:";
