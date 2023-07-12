@@ -5,7 +5,6 @@
 using namespace std;
 class secondary_index
 {
-
 public:
     string Name_list[100];
     int Address_list[100];
