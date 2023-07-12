@@ -50,7 +50,7 @@ void primary_index::insert()
     cin >> usn;
     cout << "\nNAME:";
     cin >> name;
-    cout << "\n BrANCH:";
+    cout << "\n BRANCH:";
     cin >> branch;
     cout << "\nSEMESTER:";
     cin >> semester;
@@ -71,17 +71,12 @@ void primary_index::insert()
 string primary_index::extract_usn(string buffer)
 {
     string usn;
-    string usn_list[100];
-    int address_list[100];
-    int count;
-    void create_primary_index();
-    void insert();
-    void remove(string);
-    void search(string);
-    int search_primary_index(string);
-    string extract_usn(string);
-    void sort_primary_index();
-};
+    int i = 0;
+    usn.erase();
+    while (buffer[i] != '|')
+        usn += buffer[i++];
+    return usn;
+}
 
 int primary_index::search_primary_index(string key)
 {
@@ -118,7 +113,8 @@ void primary_index::search(string key)
         address = address_list[pos];
         file.seekp(address, ios::beg);
         getline(file, buffer);
-        cout << "\nFound the record\n" << buffer;
+        cout << "\nFound the record\n"
+             << buffer;
         file.close();
     }
     else

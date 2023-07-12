@@ -49,7 +49,7 @@ int main()
             cin >> m;
             for (int i = 0; i < m; i++)
             {
-                cout << "\nenter the names\n";
+                cout << "\nEnter the names\n";
                 cin >> n[i].name;
                 revs(n[i].name);
                 cout << "\n";

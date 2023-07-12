@@ -3,6 +3,7 @@
 #include <sstream>
 #include <string>
 using namespace std;
+
 class secondary_index
 {
 public:
