@@ -41,46 +41,14 @@ void primary_index::create_primary_index()
     sort_primary_index();
 }
 
-string primary_index::extract_usn(string buffer)
+void primary_index::insert()
 {
-    string usn;
-    string usn_list[100];
-    int address_list[100];
-    int count;
-    void create_primary_index();
-    void insert();
-    void remove(string);
-    void search(string);
-    int search_primary_index(string);
-    string extract_usn(string);
-    void sort_primary_index();
-};
-
-void primary_index::create_primary_index()
-{
+    string usn, name, branch, sem, buffer;
+    int semester, address, pos;
     fstream file;
-    int pos;
-    string buffer, usn;
-    count = -1;
-    file.open("hi1.txt", ios::in);
-    while (!file.eof())
-    {
-        pos = file.tellg();
-        buffer.erase();
-        getline(file, buffer);
-        if (buffer.empty())
-            break;
-        usn = extract_usn(buffer);
-        usn_list[++count] = usn;
-        address_list[count] = pos;
-    }
-    file.close();
-    sort_primary_index();
-}
-
-string primary_index::extract_usn(string buffer)
-{
-    string usn;
+    cout << "\nUSN:";
+    cin >> usn;
+    cout << "\nNAME:";
     cin >> name;
     cout << "\n BrANCH:";
     cin >> branch;
@@ -99,6 +67,21 @@ string primary_index::extract_usn(string buffer)
     address_list[count] = pos;
     sort_primary_index();
 }
+
+string primary_index::extract_usn(string buffer)
+{
+    string usn;
+    string usn_list[100];
+    int address_list[100];
+    int count;
+    void create_primary_index();
+    void insert();
+    void remove(string);
+    void search(string);
+    int search_primary_index(string);
+    string extract_usn(string);
+    void sort_primary_index();
+};
 
 int primary_index::search_primary_index(string key)
 {
@@ -135,7 +118,7 @@ void primary_index::search(string key)
         address = address_list[pos];
         file.seekp(address, ios::beg);
         getline(file, buffer);
-        cout << "\nFound the record" << buffer;
+        cout << "\nFound the record\n" << buffer;
         file.close();
     }
     else
@@ -167,6 +150,27 @@ void primary_index::remove(string key)
     }
     else
         cout << "Not found.\n";
+}
+
+void primary_index::sort_primary_index()
+{
+    int i, j, temp_address;
+    string temp_usn;
+    for (i = 0; i <= count; i++)
+    {
+        for (j = i + 1; j <= count; j++)
+        {
+            if (usn_list[i] > usn_list[j])
+            {
+                temp_usn = usn_list[i];
+                usn_list[i] = usn_list[j];
+                usn_list[j] = temp_usn;
+                temp_address = address_list[i];
+                address_list[i] = address_list[j];
+                address_list[j] = temp_address;
+            }
+        }
+    }
 }
 
 int main()
