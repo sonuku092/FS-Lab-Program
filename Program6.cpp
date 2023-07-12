@@ -10,6 +10,7 @@ public:
     string Name_list[100];
     int Address_list[100];
     int count;
+    
     void create_index();
     void insert();
     void remove(string);

@@ -10,6 +10,7 @@ public:
     string usn_list[100];
     int address_list[100];
     int count;
+    
     void create_primary_index();
     void insert();
     void remove(string);

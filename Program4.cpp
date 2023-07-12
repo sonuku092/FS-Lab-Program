@@ -124,7 +124,7 @@ int main()
     s1.create_rrn();
     while (1)
     {
-        cout << "\nMain Menu\n 1.Add \n\n 2.Search 3.EXIT\n\nEnter the choice:";
+        cout << "\nMain Menu\n 1.Add \n 2.Search \n 3.EXIT\n\nEnter the choice:";
         cin >> choice;
         switch (choice)
         {
